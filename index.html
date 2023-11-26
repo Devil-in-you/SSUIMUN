@@ -1,25 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>navbar</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        li,
+        a,
+        button {
+            font-family: "Plus+Jakarta+Sans", sans-serif;
+            font-weight: 500;
+            font-size: 20px;
+            color: #cbd5e1;
+            text-decoration: none;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 10%;
+            background-color: #1D1D1F;
+        }
+
+        .logo {
+            cursor: pointer;
+        }
+
+        .nav_links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav_links li {
+            margin: 0 20px;
+        }
+
+        .nav_links li a {
+            transition: all 0.3s ease 0s;
+        }
+
+        .nav_links li a:hover {
+            color: #f0fafc;
+        }
+
+        .toggle {
+            display: none;
+            cursor: pointer;
+        }
+
+        .bars {
+            display: block;
+            background-color: #cbd5e1;
+            height: 3px;
+            width: 25px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .toggle.active .bars {
+            background-color: #f0fafc;
+        }
+
+        @media screen and (max-width: 768px) {
+            .nav_links {
+                display: none;
+                flex-direction: column;
+                text-align: center;
+                width: 100%;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                background-color: #1D1D1F;
+            }
+
+            .nav_links.active {
+                display: flex;
+            }
+
+            .nav_links li {
+                margin: 20px 0;
+            }
+
+            .toggle {
+                display: block;
+            }
+        }
+
+        button {
+            padding: 9px 25px;
+            background-color: rgb(17, 24, 39);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease 0s;
+        }
+
+        button:hover {
+            background-color: rgb(31, 41, 55);
+            color: #f0fafc;
+        }
+    </style>
 </head>
+
 <body>
-    <header>
-        <img class="Logo" src="SSUIMUN 7.0 White Logo.png"  width="49px">
+    <header>       
+        <img class="Logo" src="image/SSUIMUN 7.0 White Logo.png" width="49px">
         <nav>
             <ul class="nav_links">
                 <li><a href="#">Gallery</a></li>
                 <li><a href="#">About us</a></li>
                 <li><a href="#">Contact</a></li>
                 <a class="cta" href="#"><button>forms</button></a>
-                <li class="toggle"><span class="bars"></span></li>
-            
             </ul>
+            <div class="toggle" onclick="toggleMenu()">
+                <span class="bars"></span>
+            </div>
         </nav>
     </header>
+
     <script>
         function toggleMenu() {
             const navLinks = document.querySelector('.nav_links');
@@ -27,4 +136,5 @@
         }
     </script>
 </body>
+
 </html>
